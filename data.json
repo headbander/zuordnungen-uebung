@@ -1,0 +1,796 @@
+{
+  "diagnostic": {
+    "items": [
+      {
+        "id": "diag-1",
+        "type": "multiple-choice",
+        "question": "3 Hefte kosten 4,50 €. Wie viel kosten 7 Hefte?",
+        "options": [
+          { "text": "8,50 €", "correct": false, "errorType": "additive" },
+          { "text": "10,50 €", "correct": true, "errorType": null },
+          { "text": "31,50 €", "correct": false, "errorType": "multiplication-error" }
+        ],
+        "feedback": {
+          "additive": "⚠️ Du hast additiv statt multiplikativ gerechnet! Bei proportionalen Zuordnungen verdoppelt sich der Preis, wenn sich die Menge verdoppelt.",
+          "correct": "✓ Richtig! Du hast multiplikativ gedacht: 7 Hefte = (7/3) × 4,50 € = 10,50 €"
+        }
+      },
+      {
+        "id": "diag-2",
+        "type": "multiple-choice",
+        "question": "6 Arbeiter brauchen 8 Tage für einen Auftrag. Wie lange brauchen 12 Arbeiter?",
+        "options": [
+          { "text": "16 Tage", "correct": false, "errorType": "proportional-instead-of-antiproportional" },
+          { "text": "4 Tage", "correct": true, "errorType": null },
+          { "text": "2 Tage", "correct": false, "errorType": "calculation-error" }
+        ],
+        "feedback": {
+          "proportional-instead-of-antiproportional": "⚠️ Das ist antiproportional! Mehr Arbeiter → weniger Zeit. Das Produkt (Arbeiter × Tage) bleibt konstant: 6 × 8 = 48, also 12 × ? = 48 → ? = 4",
+          "correct": "✓ Richtig! Bei antiproportionalen Zuordnungen: Mehr Arbeiter → weniger Zeit. 6 × 8 = 48, also 12 × 4 = 48"
+        }
+      },
+      {
+        "id": "diag-3",
+        "type": "multiple-choice",
+        "question": "Ein Quadrat hat Seitenlänge 3 cm und Fläche 9 cm². Bei Seitenlänge 6 cm ist die Fläche:",
+        "options": [
+          { "text": "18 cm²", "correct": false, "errorType": "overlinearization" },
+          { "text": "36 cm²", "correct": true, "errorType": null },
+          { "text": "12 cm²", "correct": false, "errorType": "calculation-error" }
+        ],
+        "feedback": {
+          "overlinearization": "⚠️ Das ist ein häufiger Denkfehler! Fläche = Seite × Seite. Bei doppelter Seite: 2 × Seite × 2 × Seite = 4× größere Fläche! Hier: 6² = 36 cm²",
+          "correct": "✓ Richtig! Du hast erkannt, dass bei Flächen die Änderung quadratisch wirkt: 6² = 36 cm²"
+        }
+      },
+      {
+        "id": "diag-4",
+        "type": "graph-recognition",
+        "question": "Welcher Graph zeigt eine proportionale Zuordnung?",
+        "graphs": [
+          { "id": "A", "type": "origin-line", "correct": true },
+          { "id": "B", "type": "line-no-origin", "correct": false },
+          { "id": "C", "type": "parabola", "correct": false },
+          { "id": "D", "type": "hyperbola", "correct": false }
+        ],
+        "feedback": {
+          "correct": "✓ Richtig! Eine Ursprungsgerade zeigt proportionale Zuordnungen. Der Graph geht durch (0,0) und hat konstante Steigung.",
+          "wrong": "⚠️ Bei proportionalen Zuordnungen muss der Graph durch den Ursprung (0,0) gehen und eine Gerade sein!"
+        }
+      },
+      {
+        "id": "diag-5",
+        "type": "conceptual",
+        "question": "Ist der Zusammenhang proportional? 'Je älter ein Kind, desto größer ist es.'",
+        "options": [
+          { "text": "Nein", "correct": true },
+          { "text": "Ja, proportional", "correct": false },
+          { "text": "Ja, antiproportional", "correct": false }
+        ],
+        "requiresExplanation": true,
+        "feedback": {
+          "correct": "✓ Richtig! Kinder wachsen nicht proportional mit dem Alter. Ein 10-jähriges Kind ist nicht doppelt so groß wie ein 5-jähriges.",
+          "wrong": "⚠️ Nicht proportional! Ein 10-Jähriger ist nicht doppelt so groß wie ein 5-Jähriger. Wachstum verlangsamt sich mit dem Alter."
+        }
+      }
+    ]
+  },
+  "tables": {
+    "recognition": [
+      {
+        "id": "table-rec-1",
+        "type": "recognize-type",
+        "data": [
+          [2, 30],
+          [5, 12],
+          [8, 7.5],
+          [10, 6]
+        ],
+        "correct": "antiproportional",
+        "hints": [
+          "Berechne y/x für alle Wertepaare. Was fällt dir auf?",
+          "Probiere auch x · y. Ist eines der beiden immer gleich?",
+          "Bei proportional ist y/x konstant, bei antiproportional ist x·y konstant"
+        ],
+        "feedback": {
+          "correct": "✓ Richtig! Es ist antiproportional. Das Produkt x · y ist immer 60: 2·30=60, 5·12=60, 8·7,5=60, 10·6=60",
+          "proportional": "⚠️ Nicht proportional! Prüfe das Produkt x · y. Bei antiproportionalen Zuordnungen bleibt das Produkt konstant.",
+          "none": "⚠️ Es ist eine Zuordnung! Prüfe sowohl y/x als auch x·y."
+        }
+      },
+      {
+        "id": "table-rec-2",
+        "type": "recognize-type",
+        "data": [
+          [3, 9],
+          [5, 15],
+          [7, 21],
+          [10, 30]
+        ],
+        "correct": "proportional",
+        "hints": [
+          "Berechne den Quotienten y/x für jedes Wertepaar",
+          "Ist der Quotient überall gleich?",
+          "Der Proportionalitätsfaktor ist y/x = 3"
+        ],
+        "feedback": {
+          "correct": "✓ Richtig! Es ist proportional. Der Quotient y/x ist immer 3: 9/3=3, 15/5=3, 21/7=3, 30/10=3",
+          "antiproportional": "⚠️ Nicht antiproportional! Das Produkt ist nicht konstant. Prüfe den Quotienten y/x.",
+          "none": "⚠️ Es ist eine Zuordnung! Der Quotient y/x ist konstant."
+        }
+      },
+      {
+        "id": "table-rec-3",
+        "type": "recognize-type",
+        "data": [
+          [4, 6],
+          [8, 3],
+          [12, 2],
+          [24, 1]
+        ],
+        "correct": "antiproportional",
+        "hints": [
+          "Berechne x · y für alle Paare",
+          "Was ist das Produkt? Bleibt es gleich?",
+          "4 · 6 = 24, und alle anderen auch!"
+        ],
+        "feedback": {
+          "correct": "✓ Perfekt! Antiproportional mit konstantem Produkt 24: 4·6=24, 8·3=24, 12·2=24, 24·1=24",
+          "proportional": "⚠️ Der Quotient ist nicht konstant (6/4 ≠ 3/8). Aber das Produkt ist es!",
+          "none": "⚠️ Es ist antiproportional! x · y = 24 für alle Paare."
+        }
+      },
+      {
+        "id": "table-rec-4",
+        "type": "recognize-type",
+        "data": [
+          [2, 8],
+          [4, 14],
+          [6, 20],
+          [8, 26]
+        ],
+        "correct": "none",
+        "hints": [
+          "Prüfe y/x: Ist es konstant?",
+          "Prüfe x·y: Ist es konstant?",
+          "Weder Quotient noch Produkt sind konstant! Es ist keine der beiden Zuordnungen."
+        ],
+        "feedback": {
+          "correct": "✓ Richtig erkannt! Weder y/x noch x·y sind konstant. Das ist keine proportionale oder antiproportionale Zuordnung.",
+          "proportional": "⚠️ Der Quotient ist nicht konstant: 8/2=4, aber 14/4=3,5",
+          "antiproportional": "⚠️ Das Produkt ist nicht konstant: 2·8=16, aber 4·14=56"
+        }
+      }
+    ],
+    "completion": [
+      {
+        "id": "table-comp-1",
+        "type": "complete-table",
+        "difficulty": 1,
+        "description": "Fülle die Tabelle aus (proportional):",
+        "data": [
+          [3, 2.4],
+          [null, 4.0],
+          [12, null],
+          [null, 10.0]
+        ],
+        "zuordnungstyp": "proportional",
+        "solution": [
+          [3, 2.4],
+          [5, 4.0],
+          [12, 9.6],
+          [12.5, 10.0]
+        ],
+        "hints": [
+          "Finde zuerst den Proportionalitätsfaktor k aus dem ersten Wertepaar",
+          "k = y/x = 2,4/3 = 0,8",
+          "Nutze k = 0,8 für alle anderen Werte: y = 0,8 · x"
+        ]
+      },
+      {
+        "id": "table-comp-2",
+        "type": "complete-table",
+        "difficulty": 2,
+        "description": "Vervollständige (antiproportional):",
+        "data": [
+          [4, 15],
+          [6, null],
+          [null, 12],
+          [12, null]
+        ],
+        "zuordnungstyp": "antiproportional",
+        "solution": [
+          [4, 15],
+          [6, 10],
+          [5, 12],
+          [12, 5]
+        ],
+        "hints": [
+          "Bei antiproportional gilt: x · y = konstant",
+          "Das Produkt ist 4 · 15 = 60",
+          "Für alle Paare muss x · y = 60 gelten"
+        ]
+      },
+      {
+        "id": "table-comp-3",
+        "type": "complete-table",
+        "difficulty": 3,
+        "description": "Vervollständige (proportional, Dezimalzahlen):",
+        "data": [
+          [2.5, 7.5],
+          [null, 12.0],
+          [7.5, null],
+          [null, 30.0]
+        ],
+        "zuordnungstyp": "proportional",
+        "solution": [
+          [2.5, 7.5],
+          [4.0, 12.0],
+          [7.5, 22.5],
+          [10.0, 30.0]
+        ],
+        "hints": [
+          "k = 7,5/2,5 = 3",
+          "y = 3 · x für alle Werte",
+          "Für y = 12: x = 12/3 = 4"
+        ]
+      },
+      {
+        "id": "table-comp-4",
+        "type": "complete-table",
+        "difficulty": 4,
+        "description": "Knobelaufgabe (antiproportional):",
+        "data": [
+          [null, 8],
+          [6, null],
+          [null, 4],
+          [16, null]
+        ],
+        "zuordnungstyp": "antiproportional",
+        "solution": [
+          [6, 8],
+          [6, 8],
+          [12, 4],
+          [16, 3]
+        ],
+        "hints": [
+          "Du brauchst ein vollständiges Paar, um das Produkt zu finden",
+          "Probiere verschiedene Möglichkeiten für das erste Paar",
+          "Wenn das Produkt z.B. 48 ist: 48/8=6 für die erste Zeile"
+        ]
+      }
+    ],
+    "errorDetection": [
+      {
+        "id": "table-error-1",
+        "type": "error-detection",
+        "claim": "Paula behauptet: 'Diese Tabelle ist proportional'",
+        "data": [
+          [2, 6],
+          [4, 12],
+          [6, 20],
+          [8, 24]
+        ],
+        "hasError": true,
+        "errorCell": [2, 1],
+        "correctValue": 18,
+        "feedback": "Genau! Bei x=6 müsste y=18 sein (nicht 20), denn der Quotient muss konstant 3 bleiben. 6/2=3, 12/4=3, aber 20/6≠3"
+      },
+      {
+        "id": "table-error-2",
+        "type": "error-detection",
+        "claim": "Tim sagt: 'Das ist antiproportional'",
+        "data": [
+          [3, 12],
+          [4, 9],
+          [6, 6],
+          [9, 4]
+        ],
+        "hasError": false,
+        "feedback": "✓ Tim hat recht! Das Produkt ist konstant 36: 3·12=36, 4·9=36, 6·6=36, 9·4=36"
+      }
+    ]
+  },
+  "graphs": {
+    "exploration": [
+      {
+        "id": "graph-exp-1",
+        "type": "interactive-exploration",
+        "instruction": "Bewege den Punkt auf der Geraden und finde drei verschiedene Punkte. Berechne jeweils y/x.",
+        "graphType": "proportional",
+        "factor": 2.5,
+        "question": "Was fällt dir auf? Was bedeutet y/x für proportionale Zuordnungen?",
+        "expectedInsight": "Der Quotient y/x ist immer gleich (hier: 2,5). Das ist der Proportionalitätsfaktor und gleichzeitig die Steigung der Geraden!"
+      }
+    ],
+    "transformations": [
+      {
+        "id": "graph-to-table-1",
+        "type": "graph-to-table",
+        "instruction": "Lies 4 Wertepaare aus dem Graphen ab:",
+        "graphPoints": [[2, 6], [4, 12], [6, 18]],
+        "factor": 3,
+        "hints": [
+          "Der Punkt (1, y) verrät dir den Proportionalitätsfaktor!",
+          "Wenn die Gerade durch (1, 3) geht, ist k = 3",
+          "Ablesen: Gehe auf der x-Achse zu einem Wert und schaue, welcher y-Wert zugehört"
+        ]
+      },
+      {
+        "id": "table-to-graph-1",
+        "type": "table-to-graph",
+        "instruction": "Zeichne den Graphen:",
+        "data": [
+          [1, 3],
+          [2, 6],
+          [4, 12]
+        ],
+        "hints": [
+          "Markiere erst die Punkte im Koordinatensystem",
+          "Prüfe: Liegen alle Punkte auf einer Geraden?",
+          "Die Gerade muss durch den Ursprung (0,0) gehen!"
+        ],
+        "expectedGraph": {
+          "type": "line",
+          "throughOrigin": true,
+          "slope": 3
+        }
+      }
+    ],
+    "graphAsPicture": [
+      {
+        "id": "gap-1",
+        "type": "graph-as-picture-error",
+        "scenario": "Ein Auto fährt mit konstanter Geschwindigkeit eine Linkskurve entlang.",
+        "question": "Welcher Graph zeigt die Geschwindigkeit über die Zeit?",
+        "options": [
+          { "id": "A", "type": "curved", "correct": false, "description": "Bogenförmiger Graph" },
+          { "id": "B", "type": "horizontal", "correct": true, "description": "Horizontale Gerade" },
+          { "id": "C", "type": "diagonal", "correct": false, "description": "Diagonale Gerade" }
+        ],
+        "feedback": {
+          "A": "⚠️ Achtung! Der Graph zeigt nicht den Straßenverlauf! Die Geschwindigkeit ist konstant → horizontale Gerade. Der Graph ist NICHT ein Bild der Straße.",
+          "B": "✓ Richtig! Konstante Geschwindigkeit bedeutet: Die Geschwindigkeit ändert sich nicht über die Zeit → horizontale Gerade.",
+          "C": "⚠️ Eine diagonale Gerade würde bedeuten, dass die Geschwindigkeit gleichmäßig zunimmt. Aber sie bleibt konstant!"
+        }
+      },
+      {
+        "id": "gap-2",
+        "type": "graph-as-picture-error",
+        "scenario": "Ein Radfahrer fährt einen steilen Berg hinauf.",
+        "question": "Welcher Graph zeigt die zurückgelegte Strecke über die Zeit?",
+        "options": [
+          { "id": "A", "type": "steep-line", "correct": false, "description": "Steil ansteigende Gerade" },
+          { "id": "B", "type": "gentle-line", "correct": true, "description": "Flach ansteigende Gerade" },
+          { "id": "C", "type": "curved-up", "correct": false, "description": "Nach oben gebogene Kurve" }
+        ],
+        "feedback": {
+          "A": "⚠️ Der Graph zeigt nicht, wie steil der Berg ist! Beim Bergauffahren wird man langsamer → flachere Steigung im Graphen.",
+          "B": "✓ Richtig! Langsamer fahren bedeutet: weniger Strecke pro Zeit → flachere Steigung im Strecke-Zeit-Graphen.",
+          "C": "⚠️ Der Graph zeigt die Steigung des Geländes nicht ab!"
+        }
+      }
+    ],
+    "comparison": [
+      {
+        "id": "graph-comp-1",
+        "type": "matching",
+        "situations": [
+          { "id": "S1", "text": "Je mehr Arbeiter, desto schneller fertig" },
+          { "id": "S2", "text": "Je mehr Äpfel, desto höher der Preis" },
+          { "id": "S3", "text": "Je schneller ich fahre, desto kürzer die Zeit" },
+          { "id": "S4", "text": "Je mehr Liter Benzin, desto weiter komme ich" }
+        ],
+        "graphs": [
+          { "id": "G1", "type": "origin-line", "description": "Ursprungsgerade" },
+          { "id": "G2", "type": "hyperbola", "description": "Hyperbel" }
+        ],
+        "solution": {
+          "S1": "G2",
+          "S2": "G1",
+          "S3": "G2",
+          "S4": "G1"
+        }
+      }
+    ]
+  },
+  "strategies": {
+    "workedExamples": [
+      {
+        "id": "strategy-we-1",
+        "name": "Operator-Strategie",
+        "title": "Verdoppeln/Halbieren",
+        "example": {
+          "given": "6 Hefte kosten 9 €",
+          "question": "Wie viel kosten 12 Hefte?",
+          "solution": "12 ist das Doppelte von 6 → Der Preis verdoppelt sich auch: 2 × 9 € = 18 €",
+          "steps": [
+            "Erkenne die Beziehung: 12 = 2 × 6",
+            "Wende denselben Faktor auf den Preis an: Preis = 2 × 9 €",
+            "Ergebnis: 18 €"
+          ]
+        }
+      },
+      {
+        "id": "strategy-we-2",
+        "name": "Einheits-Strategie",
+        "title": "Über die 1",
+        "example": {
+          "given": "6 Hefte kosten 9 €",
+          "question": "Wie viel kosten 12 Hefte?",
+          "solution": "1 Heft → 9 ÷ 6 = 1,50 €, dann 12 Hefte → 12 × 1,50 = 18 €",
+          "steps": [
+            "Berechne den Preis für 1 Heft: 9 € ÷ 6 = 1,50 €",
+            "Multipliziere mit der gesuchten Anzahl: 1,50 € × 12",
+            "Ergebnis: 18 €"
+          ]
+        }
+      },
+      {
+        "id": "strategy-we-3",
+        "name": "Faktoren-Strategie",
+        "title": "Direkt mit k rechnen",
+        "example": {
+          "given": "6 Hefte kosten 9 €",
+          "question": "Wie viel kosten 12 Hefte?",
+          "solution": "y = k · x mit k = 9/6 = 1,5. Dann: y = 1,5 × 12 = 18 €",
+          "steps": [
+            "Bestimme den Proportionalitätsfaktor: k = 9/6 = 1,5",
+            "Nutze die Formel y = k · x",
+            "Setze ein: y = 1,5 · 12 = 18 €"
+          ]
+        }
+      },
+      {
+        "id": "strategy-we-4",
+        "name": "Flexibles Rechnen",
+        "title": "Clever zerlegen",
+        "example": {
+          "given": "6 Hefte kosten 9 €",
+          "question": "Wie viel kosten 12 Hefte?",
+          "solution": "6 Hefte = 9 € + 6 Hefte = 9 € → 12 Hefte = 18 €",
+          "steps": [
+            "Erkenne: 12 = 6 + 6",
+            "6 Hefte kosten 9 €",
+            "Nochmal 6 Hefte kosten auch 9 €",
+            "Zusammen: 18 €"
+          ]
+        }
+      }
+    ],
+    "strategyChoice": [
+      {
+        "id": "strat-choice-1",
+        "question": "8 kg Äpfel kosten 12 €. Wie viel kosten 20 kg?",
+        "solution": 30,
+        "hints": [
+          "Du kannst über die 1 gehen: 1 kg = 12/8 = 1,50 €",
+          "Oder clever rechnen: 20 = 2×8 + 4, also 2×12 + 6 = 30 €",
+          "Oder mit Faktor: k = 1,5, dann 20 × 1,5 = 30 €"
+        ]
+      },
+      {
+        "id": "strat-choice-2",
+        "question": "5 Liter Milch kosten 4,50 €. Wie viel kosten 15 Liter?",
+        "solution": 13.5,
+        "hints": [
+          "15 ist das Dreifache von 5 → Verdreifache auch den Preis!",
+          "3 × 4,50 € = 13,50 €",
+          "Die Operator-Strategie ist hier besonders schnell!"
+        ]
+      },
+      {
+        "id": "strat-choice-3",
+        "question": "7 kg Kartoffeln kosten 10,50 €. Wie viel kosten 3 kg?",
+        "solution": 4.5,
+        "hints": [
+          "Über die 1: 1 kg = 10,50/7 = 1,50 €, dann 3 × 1,50 = 4,50 €",
+          "Oder Faktor: k = 1,5, dann 3 × 1,5 = 4,50 €"
+        ]
+      }
+    ],
+    "comparison": [
+      {
+        "id": "strat-comp-1",
+        "scenario": "15 Liter Benzin kosten 24 €. Gesucht: Preis für 10 Liter",
+        "solutions": [
+          {
+            "name": "Max",
+            "steps": [
+              "15 L → 24 €",
+              "5 L → 8 € (durch 3)",
+              "10 L → 16 € (mal 2)"
+            ]
+          },
+          {
+            "name": "Sophie",
+            "steps": [
+              "15 L → 24 €",
+              "1 L → 1,60 € (durch 15)",
+              "10 L → 16 € (mal 10)"
+            ]
+          }
+        ],
+        "questions": [
+          { "q": "Sind beide Wege richtig?", "a": "Ja, beide führen zum richtigen Ergebnis 16 €" },
+          { "q": "Welcher Weg ist hier schneller?", "a": "Max' Weg ist geschickter, weil 15 = 3 × 5 leicht zu teilen ist" },
+          { "q": "Gibt es Aufgaben, wo Sophies Weg besser wäre?", "a": "Ja! Wenn die Zahlen nicht so schön teilbar sind, z.B. bei 13 Liter → 28 €" }
+        ]
+      }
+    ],
+    "mixed": [
+      {
+        "id": "strat-mixed-1",
+        "question": "4 Torten reichen für 12 Gäste. Wie viele Torten für 18 Gäste?",
+        "type": "proportional",
+        "solution": 6,
+        "hints": [
+          "Mehr Gäste → mehr Torten (proportional!)",
+          "18 = 1,5 × 12, also auch 1,5 × 4 Torten",
+          "6 Torten"
+        ]
+      },
+      {
+        "id": "strat-mixed-2",
+        "question": "5 Maschinen produzieren 800 Teile in 6 Stunden. Wie lange brauchen 10 Maschinen?",
+        "type": "antiproportional",
+        "solution": 3,
+        "hints": [
+          "Mehr Maschinen → weniger Zeit (antiproportional!)",
+          "Doppelte Maschinen → halbe Zeit",
+          "10 = 2 × 5, also 6 ÷ 2 = 3 Stunden"
+        ]
+      },
+      {
+        "id": "strat-mixed-3",
+        "question": "3 Maler brauchen 8 Tage. Wie lange brauchen 6 Maler?",
+        "type": "antiproportional",
+        "solution": 4,
+        "hints": [
+          "Ist das proportional oder antiproportional?",
+          "Mehr Maler → weniger Zeit!",
+          "Das Produkt bleibt konstant: 3 × 8 = 24, also 6 × ? = 24"
+        ]
+      }
+    ],
+    "plausibility": [
+      {
+        "id": "plaus-1",
+        "claim": "Leon behauptet: '8 Schokoriegel kosten 12 €. Dann kosten 4 Schokoriegel 16 €!'",
+        "correct": false,
+        "reasoning": "Wenn ich weniger kaufe, wird es billiger, nicht teurer!",
+        "solution": 6,
+        "explanation": "4 ist die Hälfte von 8, also kostet es auch halb so viel: 12 € ÷ 2 = 6 €"
+      },
+      {
+        "id": "plaus-2",
+        "claim": "Anna sagt: '6 Arbeiter brauchen 10 Tage. 3 Arbeiter brauchen dann 5 Tage.'",
+        "correct": false,
+        "reasoning": "Weniger Arbeiter brauchen MEHR Zeit, nicht weniger!",
+        "solution": 20,
+        "explanation": "Das ist antiproportional! Halb so viele Arbeiter → doppelt so lange: 10 × 2 = 20 Tage"
+      }
+    ]
+  },
+  "context": {
+    "situationAssessment": [
+      {
+        "id": "sit-1",
+        "situation": "Je mehr Fußballer auf dem Platz, desto schneller ist das Spiel zu Ende",
+        "correct": "antiproportional",
+        "explanation": "Mehr Spieler → kürzere Spielzeit (wenn sie zusammenspielen). Das ist antiproportional."
+      },
+      {
+        "id": "sit-2",
+        "situation": "Je älter ein Baum, desto höher ist er",
+        "correct": "none",
+        "explanation": "Bäume wachsen nicht proportional! Ein 20-jähriger Baum ist nicht doppelt so hoch wie ein 10-jähriger. Das Wachstum verlangsamt sich."
+      },
+      {
+        "id": "sit-3",
+        "situation": "Je mehr Benzin, desto weiter komme ich",
+        "correct": "proportional",
+        "explanation": "Doppelte Benzinmenge → doppelte Strecke (bei gleichem Verbrauch). Das ist proportional."
+      },
+      {
+        "id": "sit-4",
+        "situation": "Wenn ein Quadrat doppelt so lange Seiten hat, ist die Fläche doppelt so groß",
+        "correct": "false-overlinearization",
+        "explanation": "⚠️ Häufiger Denkfehler! Fläche = Seite × Seite. Bei doppelter Seite: 2 × Seite × 2 × Seite = 4× größere Fläche!"
+      }
+    ],
+    "simpleProblems": [
+      {
+        "id": "simple-1",
+        "difficulty": 1,
+        "type": "proportional",
+        "text": "250 g Käse kosten 3,75 €. Wie viel kosten 400 g?",
+        "solution": 6.0,
+        "unit": "€",
+        "hints": [
+          "Über die 1: 1 g Käse kostet 3,75 ÷ 250 = 0,015 €",
+          "400 g kosten dann 400 × 0,015 €",
+          "Oder mit Faktor: k = 0,015, dann 400 × 0,015 = 6 €"
+        ],
+        "visualizationAvailable": true
+      },
+      {
+        "id": "simple-2",
+        "difficulty": 2,
+        "type": "antiproportional",
+        "text": "8 Maler streichen eine Turnhalle in 5 Tagen. Wie lange brauchen 10 Maler?",
+        "solution": 4,
+        "unit": "Tage",
+        "hints": [
+          "Was bleibt bei antiproportionalen Zuordnungen konstant?",
+          "Die Gesamtarbeit (Maler × Tage) bleibt gleich!",
+          "8 × 5 = 40, also 10 × ? = 40 → ? = 4 Tage"
+        ]
+      },
+      {
+        "id": "simple-3",
+        "difficulty": 2,
+        "type": "proportional",
+        "text": "Ein Rezept für 4 Personen braucht 500 g Mehl. Wie viel Mehl für 6 Personen?",
+        "solution": 750,
+        "unit": "g",
+        "hints": [
+          "Mehr Personen → mehr Zutaten (proportional)",
+          "6 = 1,5 × 4, also auch 1,5 × 500 g",
+          "750 g Mehl"
+        ]
+      }
+    ],
+    "multiStep": [
+      {
+        "id": "multi-1",
+        "text": "Ein Güterzug braucht mit 80 km/h für eine Strecke 3 Stunden.",
+        "parts": [
+          {
+            "question": "a) Wie lange braucht er mit 60 km/h?",
+            "solution": 4,
+            "unit": "Stunden",
+            "hint": "Weniger Geschwindigkeit → mehr Zeit (antiproportional!). Produkt Geschwindigkeit × Zeit bleibt konstant."
+          },
+          {
+            "question": "b) Mit welcher Geschwindigkeit muss er fahren, um die Strecke in 2 Stunden zu schaffen?",
+            "solution": 120,
+            "unit": "km/h",
+            "hint": "Weniger Zeit → mehr Geschwindigkeit. Aus a) weißt du: 240 km Strecke. Also 240 ÷ 2 = 120 km/h"
+          }
+        ]
+      }
+    ],
+    "overlinearizationTraps": [
+      {
+        "id": "trap-1",
+        "text": "Sue und Julie laufen gleich schnell um eine Bahn. Als Sue 9 Runden hatte, hatte Julie 3 Runden. Wie viele Runden hatte Sue, als Julie 15 Runden hatte?",
+        "options": [
+          { "value": 45, "correct": false, "trap": "proportional" },
+          { "value": 21, "correct": true },
+          { "value": 18, "correct": false }
+        ],
+        "feedback": {
+          "45": "⚠️ Vorsicht! Das ist NICHT proportional! Sue startet mit Vorsprung. Sie ist immer 6 Runden voraus: Julie 3 → Sue 9 (Differenz: 6), Julie 15 → Sue 21 (Differenz: 6)",
+          "21": "✓ Richtig! Sue ist immer 6 Runden voraus. Das ist ein additiver Zusammenhang, nicht proportional!",
+          "18": "⚠️ Das wäre bei konstanter Differenz von 9-3=6 nicht korrekt."
+        }
+      },
+      {
+        "id": "trap-2",
+        "text": "Ein Pool hat die Form eines Würfels. Wenn die Kantenlänge verdoppelt wird, wie viel mal mehr Wasser passt rein?",
+        "options": [
+          { "value": 2, "correct": false, "trap": "linear" },
+          { "value": 4, "correct": false, "trap": "quadratic" },
+          { "value": 8, "correct": true }
+        ],
+        "feedback": {
+          "2": "⚠️ Volumen ist dreidimensional! Bei Verdopplung wirkt der Faktor 2 dreimal: 2 × 2 × 2 = 8",
+          "4": "⚠️ Das wäre bei Flächen (2D) richtig. Aber Volumen ist 3D: 2³ = 8",
+          "8": "✓ Richtig! Volumen = Länge × Breite × Höhe. Bei Verdopplung: 2 × 2 × 2 = 8-mal mehr Wasser"
+        }
+      }
+    ],
+    "openModeling": [
+      {
+        "id": "open-1",
+        "scenario": "Eine Schulklasse plant einen Ausflug zum Freizeitpark.",
+        "information": [
+          "Eintritt pro Person: 32 €",
+          "Busmiete: 400 € (unabhängig von Personenzahl)",
+          "28 Schüler haben sich angemeldet"
+        ],
+        "tasks": [
+          {
+            "part": "a",
+            "question": "Wie viel kostet der Ausflug pro Person?",
+            "solution": 46.29,
+            "explanation": "Gesamtkosten: 28 × 32 € + 400 € = 896 € + 400 € = 1296 €. Pro Person: 1296 € ÷ 28 ≈ 46,29 €"
+          },
+          {
+            "part": "b",
+            "question": "3 Schüler sagen ab. Was kostet es jetzt pro Person?",
+            "solution": 49.6,
+            "explanation": "25 Schüler: 25 × 32 € + 400 € = 1200 €. Pro Person: 1200 € ÷ 25 = 48 €"
+          },
+          {
+            "part": "c",
+            "question": "Welche Beziehungen sind hier proportional, welche nicht? Erkläre!",
+            "answer": "Proportional: Eintrittskosten zu Anzahl Schüler (doppelt so viele → doppelte Kosten). NICHT proportional: Kosten pro Person zu Anzahl Schüler (mehr Schüler → günstiger pro Person wegen fixer Buskosten)"
+          }
+        ]
+      }
+    ]
+  },
+  "transformation": {
+    "multiRepresentation": [
+      {
+        "id": "trans-1",
+        "given": "5 kg Äpfel kosten 7,50 €",
+        "representations": {
+          "table": [[5, 7.5], [10, null], [null, 22.5]],
+          "graph": { "points": [[5, 7.5]], "type": "proportional" },
+          "formula": { "type": "y = k * x", "k": 1.5 },
+          "verbal": "Jedes kg kostet 1,50 €"
+        },
+        "solution": {
+          "table": [[5, 7.5], [10, 15], [15, 22.5]],
+          "formula": { "k": 1.5 }
+        }
+      },
+      {
+        "id": "trans-2",
+        "given": "6 Arbeiter brauchen 8 Stunden",
+        "representations": {
+          "table": [[6, 8], [12, null], [null, 16]],
+          "graph": { "points": [[6, 8]], "type": "antiproportional" },
+          "formula": { "type": "x * y = k", "k": 48 },
+          "verbal": "Das Produkt (Arbeiter × Stunden) ist immer 48"
+        },
+        "solution": {
+          "table": [[6, 8], [12, 4], [3, 16]],
+          "formula": { "k": 48 }
+        }
+      }
+    ]
+  },
+  "finalChallenge": {
+    "problems": [
+      {
+        "id": "final-1",
+        "type": "table-recognition",
+        "question": "Erkenne den Zuordnungstyp:",
+        "data": [[5, 20], [10, 10], [20, 5]],
+        "correct": "antiproportional"
+      },
+      {
+        "id": "final-2",
+        "type": "graph-reading",
+        "question": "Lies den Proportionalitätsfaktor vom Graphen ab (Ursprungsgerade durch (4, 10))",
+        "correct": 2.5
+      },
+      {
+        "id": "final-3",
+        "type": "text-problem",
+        "question": "7 Bücher kosten 91 €. Wie viel kosten 4 Bücher?",
+        "correct": 52,
+        "type": "proportional"
+      },
+      {
+        "id": "final-4",
+        "type": "conceptual",
+        "question": "Ein 8-jähriges Kind ist 120 cm groß. Ist ein 16-jähriges Kind 240 cm groß?",
+        "correct": false,
+        "reason": "Nicht proportional! Körpergröße wächst nicht linear mit dem Alter."
+      },
+      {
+        "id": "final-5",
+        "type": "strategy-choice",
+        "question": "20 m Stoff kosten 150 €. Wie viel kosten 8 m? Welche Strategie ist hier am geschicktesten?",
+        "solution": 60,
+        "bestStrategy": "factor",
+        "explanation": "k = 150/20 = 7,5 €/m, dann 8 × 7,5 = 60 €. Der Faktor ist hier einfach zu berechnen."
+      }
+    ]
+  }
+}
